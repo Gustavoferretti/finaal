@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="css/Estilospiolas.css" rel="stylesheet" type="text/css"/>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,6 +38,7 @@
 						 </div>
 					</div>
                    <form action="" method="post" name="login">
+                     
                            <div class="form-group">
                               <label for="exampleInputEmail1">Usuario</label>
                               <input type="email" name="txtusu"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -47,7 +49,8 @@
                            </div>
                           
                            <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">iniciar</button>
+                              
                            </div>
                            <div class="col-md-12 ">
                               <div class="login-or">
