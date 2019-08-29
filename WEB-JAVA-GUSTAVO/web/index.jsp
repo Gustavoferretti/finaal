@@ -37,7 +37,7 @@
 							<h1>iniciar sesion </h1>
 						 </div>
 					</div>
-                   <form action="" method="post" name="login">
+                   <form action="controlador=?accion" method="post" name="login">
                      
                            <div class="form-group">
                               <label for="exampleInputEmail1">Usuario</label>

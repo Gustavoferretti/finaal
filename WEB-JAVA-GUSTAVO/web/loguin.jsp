@@ -33,9 +33,20 @@
                             <form action="Controlador.java" method="post" name="login">
                                 <div class="form-group">                                        
                                     <label for="exampleInputEmail1">Cargo</label><br/>
-                                    <select class="selectpicker" data-live-search="true">
+                                    <select class="selectpicker" data-live-search="true"
+                                            name='selecpro'>
                                         <option data-tokens="Profesor">Profesor</option>
                                         <option data-tokens="Alumno">Alumno</option>
+
+                                    </select>
+                                    <div class="form-group">                                        
+                                    <label for="exampleInputEmail1">sexo</label><br/>
+                                     <select class="selectpicker" data-live-search="true"
+                                            name='selecsex'>
+                                        
+                                        <option data-tokens="hombre">hombre</option>
+                                        <option data-tokens="mujer">mujer</option>
+                                        <option data-tokens="otro">otro</option>
 
                                     </select>
                                 </div>
@@ -49,15 +60,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Dni</label>
-                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter DNI">
+                                    <input type="text" name="txtdni" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter DNI">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">edad</label>
-                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter edad">
+                                    <input type="text" name="txtedad" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter edad">
                                 </div>
                                  <div class="form-group">
                                     <label for="exampleInputEmail1">telefono</label>
-                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                    <input type="text" name="txttell" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
                                 </div>
                                 <div class="col-md-12 text-center ">
                                     <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">crear</button>

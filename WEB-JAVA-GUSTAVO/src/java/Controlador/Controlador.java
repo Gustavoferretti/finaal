@@ -5,8 +5,11 @@
  */
 package Controlador;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,21 +22,46 @@ import javax.servlet.http.HttpServletResponse;
 public class Controlador extends HttpServlet {
 
   
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Controlador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        String accion = request.getParameter("accion");
+
+        switch (accion) {
+            case "Iniciar Sesion":
+                String nombre = request.getParameter("txtusu");
+                String contra = request.getParameter("txtpass");
+                
+                if (nombre.equals(nombre) && ) {
+                    response.sendRedirect("PantallaPrincipal.jsp");
+                }
+                else{
+                    response.sendRedirect("index.jsp");
+                }
+                break;
+            case "agregar":
+                request.getRequestDispatcher("AgregarContacto.jsp").forward(request, response);
+                break;
+
+            case "Agregar Nuevo Contacto":
+                String nombreContacto = request.getParameter("nombreContacto");
+                int telefono = Integer.parseInt(request.getParameter("telefono"));
+                String mail = request.getParameter("txtmail");
+                suario c = new Contacto(nombreContacto, telefono, mail);
+                ContactoDAO conDAO = new ContactoDAO();
+                conDAO.agregar(c);
+                request.setAttribute("mensaje", nombreContacto);
+                request.getRequestDispatcher("AgregarContacto.jsp").forward(request, response);
+                break;
+            case "listar":
+                UsuarioDAO contDAO= new UsuarioDAO();
+                List<Usuario> aux=contDAO.listar();
+                request.setAttribute("lista", aux);
+                request.getRequestDispatcher("ListarContactos.jsp").forward(request, response);
+                break;
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
