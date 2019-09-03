@@ -37,11 +37,11 @@
 							<h1>iniciar sesion </h1>
 						 </div>
 					</div>
-                   <form action="controlador=?accion" method="post" name="login">
+                   <form action="Controlador?accion=Iniciar Sesion" method="post" name="login">
                      
                            <div class="form-group">
                               <label for="exampleInputEmail1">Usuario</label>
-                              <input type="email" name="txtusu"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <input type="text" name="txtusu"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">contraseña</label>
@@ -58,5 +58,7 @@
                                 
                               </div>
                            </div>
+                       
+                   </form>
                           </body>
 </html>

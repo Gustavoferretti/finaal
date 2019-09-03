@@ -30,11 +30,11 @@
                                     <h1>Crear usuario </h1>
                                 </div>
                             </div>
-                            <form action="Controlador.java" method="post" name="login">
+                            <form action="Controlador" method="post" name="login">
                                 <div class="form-group">                                        
                                     <label for="exampleInputEmail1">Cargo</label><br/>
                                     <select class="selectpicker" data-live-search="true"
-                                            name='selecpro'>
+                                    selecsex        name='selecpro'>
                                         <option data-tokens="Profesor">Profesor</option>
                                         <option data-tokens="Alumno">Alumno</option>
 
@@ -42,7 +42,7 @@
                                     <div class="form-group">                                        
                                     <label for="exampleInputEmail1">sexo</label><br/>
                                      <select class="selectpicker" data-live-search="true"
-                                            name='selecsex'>
+                                            name="">
                                         
                                         <option data-tokens="hombre">hombre</option>
                                         <option data-tokens="mujer">mujer</option>
@@ -52,11 +52,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">nombre</label>
-                                    <input type="text" name="txtusu"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Nombre">
+                                    <input type="text" name="txtnom"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Apellido">
+                                    <input type="text" name="txtape" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Apellido">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Dni</label>
@@ -69,6 +69,18 @@
                                  <div class="form-group">
                                     <label for="exampleInputEmail1">telefono</label>
                                     <input type="text" name="txttell" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                </div>
+                                     <div class="form-group">
+                                    <label for="exampleInputEmail1">mail</label>
+                                    <input type="text" name="txtmail" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                </div>
+                                     <div class="form-group">
+                                    <label for="exampleInputEmail1">usuario</label>
+                                    <input type="text" name="txtuser" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                </div>
+                                     <div class="form-group">
+                                    <label for="exampleInputEmail1">contraseña</label>
+                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
                                 </div>
                                 <div class="col-md-12 text-center ">
                                     <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">crear</button>

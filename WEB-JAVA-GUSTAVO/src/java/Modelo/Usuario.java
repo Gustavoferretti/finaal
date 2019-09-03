@@ -20,10 +20,11 @@ public class Usuario {
     String apellido;
     String sexo;
     String contraseña;
+    String usuario;
     
     
 
-    public Usuario(int id, String nombre, String apellido, int edad, String profAlum,String sexo ,int dni,String mail,int telefono,String contraseña) {
+    public Usuario(int id, String nombre, String apellido, int edad, String profAlum,String sexo ,int dni,String mail,int telefono,String usuario,String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.apellido=apellido;
@@ -33,12 +34,22 @@ public class Usuario {
         this.telefono=telefono;
         this.mail=mail;
         this.sexo=sexo;
+        this.usuario=usuario;
         this.contraseña=contraseña;
         
     }
 
     public Usuario() {
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
 
     public String getContraseña() {
         return contraseña;
@@ -53,7 +64,7 @@ public class Usuario {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
+    public void setapellido(String apellido) {
         this.apellido = apellido;
     }
 

@@ -5,10 +5,14 @@
  */
 package Controlador;
 
+import Config.Conexion;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,44 +25,57 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Controlador extends HttpServlet {
 
-  
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String accion = request.getParameter("accion");
+         UsuarioDAO u =new UsuarioDAO();
+         Usuario usuario;
 
         switch (accion) {
+            
             case "Iniciar Sesion":
-                String nombre = request.getParameter("txtusu");
-                String contra = request.getParameter("txtpass");
-                
-                if (nombre.equals(nombre) && ) {
-                    response.sendRedirect("PantallaPrincipal.jsp");
-                }
-                else{
+                String user =request.getParameter("txtusu");
+              String  pss=request.getParameter("pass");
+              
+              usuario=u.validar(user, pss);
+                if (usuario!=null) {
+                    response.sendRedirect("MenuAlumnos.jsp");
+                } else {
                     response.sendRedirect("index.jsp");
                 }
                 break;
             case "agregar":
-                request.getRequestDispatcher("AgregarContacto.jsp").forward(request, response);
+                request.getRequestDispatcher("loguin.jsp").forward(request, response);
                 break;
 
-            case "Agregar Nuevo Contacto":
-                String nombreContacto = request.getParameter("nombreContacto");
-                int telefono = Integer.parseInt(request.getParameter("telefono"));
+            case "Agregar Nuevo Alumno":
+
+                String nombreusuario = request.getParameter("txtnom");
+                String apellido = request.getParameter("txtape");
+                int dni = Integer.parseInt(request.getParameter("txtdni"));
+
+                int edad = Integer.parseInt(request.getParameter("txtedad"));
+                int telefono = Integer.parseInt(request.getParameter("txttell"));
+                String usere = request.getParameter("txtuser");
+                String pass = request.getParameter("txtpass");
+                String cargouser = request.getParameter("selecpro");
+                String sexouser = request.getParameter("selecsex");
                 String mail = request.getParameter("txtmail");
-                suario c = new Contacto(nombreContacto, telefono, mail);
-                ContactoDAO conDAO = new ContactoDAO();
+                int id;
+
+                Usuario c = new Usuario(id, nombreusuario, apellido, dni, cargouser, sexouser, dni, mail, telefono, usere, pass);
+                UsuarioDAO conDAO = new UsuarioDAO();
                 conDAO.agregar(c);
-                request.setAttribute("mensaje", nombreContacto);
-                request.getRequestDispatcher("AgregarContacto.jsp").forward(request, response);
+                request.setAttribute("mensaje", nombreusuario);
+                request.getRequestDispatcher("AgregarAlumno.jsp").forward(request, response);
                 break;
             case "listar":
-                UsuarioDAO contDAO= new UsuarioDAO();
-                List<Usuario> aux=contDAO.listar();
+                UsuarioDAO contDAO = new UsuarioDAO();
+                List<Usuario> aux = contDAO.listar();
                 request.setAttribute("lista", aux);
-                request.getRequestDispatcher("ListarContactos.jsp").forward(request, response);
+                request.getRequestDispatcher("ListarAlumno.jsp").forward(request, response);
                 break;
         }
 
