@@ -25,23 +25,34 @@
                     <a class="navbar-brand" href="#">Escuela Desarroladores </a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">inicio</a></li>
+                    <li class="active"><a href="Controlador?accion=Principal">inicio</a></li>
                     <li class="dropdown">
+                       
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">prioridad
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Alumnos</a></li>
-                            <li><a href="#">Materias</a></li>
+                            <li><a href="Controlador?accion=loguin" target="myframe">Alumnos</a></li>
+                            <li><a href="Controlador?accion=vernotas">Materias</a></li>
                             <li><a href="#"></a></li>
                         </ul>
                     </li>
                     <li><a href="#">perfil</a></li>
                     <li><a href="#">comunicados</a></li>
+                    <li>  <a href="index.jsp"  class="btn-block">salir</a></li>
                 </ul>
+                
                 <p class="navbar-text">Conectado como "Nombre Apellidos"</p>
             </div>
         </nav> 
-
+        <div class="m-4" style="height:650px " >
+            
+            <iframe name="myframe" style="height: 100%;  width:100%">
+                
+                
+                
+            </iframe>  
+        </div>
+               
 
 
     </body>

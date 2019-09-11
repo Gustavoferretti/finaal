@@ -27,50 +27,59 @@ public class Controlador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+
+       
         String accion = request.getParameter("accion");
          UsuarioDAO u =new UsuarioDAO();
          Usuario usuario;
-
+       
+        
         switch (accion) {
             
-            case "Iniciar Sesion":
-                String user =request.getParameter("txtusu");
-              String  pss=request.getParameter("pass");
-              
-              usuario=u.validar(user, pss);
-                if (usuario!=null) {
-                    response.sendRedirect("MenuAlumnos.jsp");
-                } else {
-                    response.sendRedirect("index.jsp");
-                }
+            case "Principal":
+                request.getRequestDispatcher("Menu.jsp").forward(request, response);
                 break;
             case "agregar":
-                request.getRequestDispatcher("loguin.jsp").forward(request, response);
-                break;
-
-            case "Agregar Nuevo Alumno":
-
-                String nombreusuario = request.getParameter("txtnom");
+              
+                 String nombreusuario = request.getParameter("txtnom");
                 String apellido = request.getParameter("txtape");
-                int dni = Integer.parseInt(request.getParameter("txtdni"));
+               int dni = Integer.parseInt(request.getParameter("txtdni"));
 
                 int edad = Integer.parseInt(request.getParameter("txtedad"));
-                int telefono = Integer.parseInt(request.getParameter("txttell"));
-                String usere = request.getParameter("txtuser");
-                String pass = request.getParameter("txtpass");
-                String cargouser = request.getParameter("selecpro");
+               int telefono = Integer.parseInt(request.getParameter("txttell"));
+               String usere = request.getParameter("txtuser");
+          /*String pass = request.getParameter("txtpass");*/
+                //String cargouser = request.getParameter("selecpro");
                 String sexouser = request.getParameter("selecsex");
-                String mail = request.getParameter("txtmail");
-                int id;
+                // String mail = request.getParameter("txtmail");
+                
 
-                Usuario c = new Usuario(id, nombreusuario, apellido, dni, cargouser, sexouser, dni, mail, telefono, usere, pass);
+                Usuario c = new Usuario();
+                c.setNombre(nombreusuario);
+                c.setapellido(apellido);
+                c.setDni(dni);
+                c.setEdad(edad);
+                c.setTelefono(telefono);
+                c.setUsuario(usere);
+              c.setSexo(sexouser);
+                  /*c.setContraseña(pass);*/
+               //c.setProfAlum(cargouser);
+         //   c.setMail(mail);
+                
                 UsuarioDAO conDAO = new UsuarioDAO();
                 conDAO.agregar(c);
                 request.setAttribute("mensaje", nombreusuario);
-                request.getRequestDispatcher("AgregarAlumno.jsp").forward(request, response);
+                request.getRequestDispatcher("loguin.jsp").forward(request, response);
                 break;
+            case  "vernotas":
+                request.getRequestDispatcher("VerNotas.jsp").forward(request, response);
+
+                case  "Principal ":
+                request.getRequestDispatcher("principal.jsp").forward(request, response);
+                    break;
+                case  "loguin":
+                request.getRequestDispatcher("loguin.jsp").forward(request, response);
+
             case "listar":
                 UsuarioDAO contDAO = new UsuarioDAO();
                 List<Usuario> aux = contDAO.listar();

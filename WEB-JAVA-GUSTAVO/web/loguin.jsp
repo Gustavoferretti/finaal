@@ -30,67 +30,78 @@
                                     <h1>Crear usuario </h1>
                                 </div>
                             </div>
-                            <form action="Controlador" method="post" name="login">
+                            <form action="Controlador?accion=agregar" method="Post" name="login">
                                 <div class="form-group">                                        
                                     <label for="exampleInputEmail1">Cargo</label><br/>
                                     <select class="selectpicker" data-live-search="true"
-                                    selecsex        name='selecpro'>
+                                             name='selecpro'>
                                         <option data-tokens="Profesor">Profesor</option>
                                         <option data-tokens="Alumno">Alumno</option>
 
                                     </select>
+                                </div>
                                     <div class="form-group">                                        
-                                    <label for="exampleInputEmail1">sexo</label><br/>
-                                     <select class="selectpicker" data-live-search="true"
-                                            name="">
-                                        
-                                        <option data-tokens="hombre">hombre</option>
-                                        <option data-tokens="mujer">mujer</option>
-                                        <option data-tokens="otro">otro</option>
+                                        <label for="exampleInputEmail1">sexo</label><br/>
+                                        <select class="selectpicker" data-live-search="true"
+                                                name='selecsex'>
 
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">nombre</label>
-                                    <input type="text" name="txtnom"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Nombre">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Apellido</label>
-                                    <input type="text" name="txtape" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Apellido">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Dni</label>
-                                    <input type="text" name="txtdni" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter DNI">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">edad</label>
-                                    <input type="text" name="txtedad" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter edad">
-                                </div>
-                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">telefono</label>
-                                    <input type="text" name="txttell" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
-                                </div>
-                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">mail</label>
-                                    <input type="text" name="txtmail" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
-                                </div>
-                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">usuario</label>
-                                    <input type="text" name="txtuser" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
-                                </div>
-                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">contraseña</label>
-                                    <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
-                                </div>
-                                <div class="col-md-12 text-center ">
-                                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">crear</button>
+                                            <option data-tokens="hombre">hombre</option>
+                                            <option data-tokens="mujer">mujer</option>
+                                            <option data-tokens="otro">otro</option>
 
-                                </div>
-                                <div class="col-md-12 ">
-                                    <div class="login-or">
-                                        <hr class="hr-or">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">nombre</label>
+                                        <input type="text" name="txtnom"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Apellido</label>
+                                        <input type="text" name="txtape" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Apellido">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Dni</label>
+                                        <input type="text" name="txtdni" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter DNI">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">edad</label>
+                                        <input type="text" name="txtedad" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter edad">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">telefono</label>
+                                        <input type="text" name="txttell" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">mail</label>
+                                        <input type="text" name="txtmail" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">usuario</label>
+                                        <input type="text" name="txtuser" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">contraseña</label>
+                                        <input type="text" name="txtpass" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter telefon">
+                                    </div>
+                                    <div class="col-md-12 text-center ">
+                                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">crear</button>
 
                                     </div>
+                                    <div class="col-md-12 ">
+                                        <div class="login-or">
+                                            <hr class="hr-or">
+
+                                        </div>
+                                    </div>
+
                                 </div>
-                                </body>
-                                </html>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

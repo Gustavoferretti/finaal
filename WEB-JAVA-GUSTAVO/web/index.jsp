@@ -37,7 +37,7 @@
 							<h1>iniciar sesion </h1>
 						 </div>
 					</div>
-                   <form action="Controlador?accion=Iniciar Sesion" method="post" name="login">
+                   <form action="Validar" method="Post" >
                      
                            <div class="form-group">
                               <label for="exampleInputEmail1">Usuario</label>
@@ -49,7 +49,10 @@
                            </div>
                           
                            <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">iniciar</button>
+                               <button type="submit"  name="accion" value="Principal"class=" btn btn-block mybtn btn-primary tx-tfm">iniciar</button>
+                                  <button type="submit"  name="accion" value="agregar"class=" btn btn-block mybtn  tx-tfm">crear cuenta</button>
+                              
+                            
                               
                            </div>
                            <div class="col-md-12 ">

@@ -29,19 +29,20 @@ public class UsuarioDAO {
 
     public void agregar(Usuario c) {
 
-        String sql = "insert into usuarios(nombre,apellido,dni,Profesor/Alumnos,sexo,telefono,mail,edad,contraseña)values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into usuarios(nombre, apellido,Dni,edad,telefono,usuario,sexo)values(?,?,?,?,?,?,?)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(2, c.getNombre());
-            ps.setString(3, c.getApellido());
-            ps.setString(4, Integer.toString(c.getDni()));
-            ps.setString(5, c.isProfAlum());
-            ps.setString(6, c.getSexo());
-            ps.setString(7, Integer.toString(c.getTelefono()));
-            ps.setString(8, c.getMail());
-            ps.setString(9, Integer.toString(c.getEdad()));
-            ps.setString(10, c.getContraseña());
+            ps.setString(1, c.getNombre());
+            ps.setString(2, c.getApellido());
+            ps.setInt(3, c.getDni());
+             ps.setInt(4, c.getEdad());
+              ps.setInt(5, c.getTelefono());
+              ps.setString(6,c.getUsuario());
+                ps.setString(7,c.getSexo());
+               //  ps.setString(8,c.getMail());
+     
+        
 
             ps.executeUpdate();
         } catch (Exception e) {
@@ -145,20 +146,21 @@ public class UsuarioDAO {
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
+           
             while (rs.next()) {
                 usuario =new Usuario();
-                usuario.setId(rs.getInt(1));
-                usuario.setNombre(rs.getString(2));
-                usuario.setapellido(rs.getString(3));
-                usuario.setDni(rs.getInt(4));
-                usuario.setProfAlum(rs.getString(5));
-                usuario.setSexo(rs.getString(6));
-                usuario.setTelefono(rs.getInt(7));
-                usuario.setMail(rs.getString(8));
-                usuario.setEdad(rs.getInt(9));
-                usuario.setContraseña(rs.getString(10));
-               usuario.setUsuario(rs.getString(11));
+                usuario.setId(rs.getInt("id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setapellido(rs.getString("apellido"));
+                usuario.setDni(rs.getInt("Dni"));
+                usuario.setProfAlum(rs.getString("Profesor/Alumno"));
+                usuario.setSexo(rs.getString("sexo"));
+                usuario.setTelefono(rs.getInt("telefono"));
+                usuario.setMail(rs.getString("edad"));
+                usuario.setEdad(rs.getInt("mail"));
+                usuario.setContraseña(rs.getString("contraseña"));
+               usuario.setUsuario(rs.getString("usuario"));
+                rs = ps.executeQuery();
             return usuario;
             }
 
