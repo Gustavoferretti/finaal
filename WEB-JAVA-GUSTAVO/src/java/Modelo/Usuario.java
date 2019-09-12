@@ -97,7 +97,7 @@ public class Usuario {
     }
     
 
-    public void setId(int id) {
+    public void setid(int id) {
         this.id = id;
     }
 
@@ -117,7 +117,7 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public String isProfAlum() {
+    public String getProfAlum() {
         return profAlum;
     }
 

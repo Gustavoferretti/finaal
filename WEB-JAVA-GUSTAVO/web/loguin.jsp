@@ -20,7 +20,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
-        <div class="container">
+        <div class="container" class=" bg-danger">
             <div class="row">
                 <div class="col-md-5 mx-auto">
                     <div id="first">
@@ -30,11 +30,11 @@
                                     <h1>Crear usuario </h1>
                                 </div>
                             </div>
-                            <form action="Controlador?accion=agregar" method="Post" name="login">
+                            <form action="Controlador?menu=alumnos&accion=agregar" method="Post" name="login">
                                 <div class="form-group">                                        
                                     <label for="exampleInputEmail1">Cargo</label><br/>
                                     <select class="selectpicker" data-live-search="true"
-                                             name='selecpro'>
+                                             name="cargo">
                                         <option data-tokens="Profesor">Profesor</option>
                                         <option data-tokens="Alumno">Alumno</option>
 

@@ -50,7 +50,7 @@
                           
                            <div class="col-md-12 text-center ">
                                <button type="submit"  name="accion" value="Principal"class=" btn btn-block mybtn btn-primary tx-tfm">iniciar</button>
-                                  <button type="submit"  name="accion" value="agregar"class=" btn btn-block mybtn  tx-tfm">crear cuenta</button>
+                                 
                               
                             
                               
@@ -63,5 +63,6 @@
                            </div>
                        
                    </form>
+                                    <a type="submit"  href="loguin.jsp"  class=" btn btn-bloc tx-tfm">crear cuenta</a>
                           </body>
 </html>

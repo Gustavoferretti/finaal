@@ -70,84 +70,85 @@
                     </form> 
 
                 </div>
-           
-       
-        <div class="col-sm-8">
-            <table class="table-hover">
-                <thead>
-                    <tr>
-                        <th>id</th>  
-                        <th>nombre</th> 
-                        <th>apellido</th> 
-                        <th>dni</th> 
-                        <th>edad</th> 
-                        <th>sexo</th> 
-                        <th>cargo</th> 
-                        <th>telefono</th> 
-                        <th>usuario</th> 
-                        <th>contraseña</th> 
-                        <th>mail</th> 
-                        <th>acciones</th>
-
-
-                    </tr>   
-
-
-                </thead> 
-                <tbody>
-                    <c:forEach var="u" items="${lista}">
-                    <tr>
-
-                      
-                        <td> ${u.getid()}</td>  
-                        <td>${u.getNombre()}</td>  
-                        <td>${u.getapellido()}</td>  
-                        <td>${u.getDni()}</td>  
-                        <td>${u.getTelefono()}</td>  
-                        <td>${u.getedad()}</td>  
-                        <td>${u.getUsuario()}</td>  
-                        <td>${u.getContraseña()}</td>  
-                        <td>${u.getSexo()}</td>  
-                        <td>${u.getmail()}</td>
-                        <td>${u.getProfAlum()}</td>  
-     
-                        <td>
-                            <a>Editar</a>   
-                            <a>Eliminar</a> 
-                            
-                        </td>
-
-
-
-
-                    </tr> 
-
-               </c:forEach>
-
-
-
-
-                </tbody>
-
-
-            </table>  
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
             </div>
+
+
+            <div class="col-sm-6">
+                <table class=" table table-hover">
+                    <thead>
+                        <tr>
+                            <th>id</th>  
+                            <th>nombre</th> 
+                            <th>apellido</th> 
+                            <th>dni</th> 
+                            <th>edad</th> 
+                            <th>sexo</th> 
+                            <th>cargo</th> 
+                            <th>telefono</th> 
+                            <th>usuario</th> 
+                            <th>contraseña</th> 
+                            <th>mail</th> 
+                            <th>acciones</th>
+
+
+                        </tr>   
+
+
+                    </thead> 
+                    <tbody>
+                        <c:forEach var="u" items="${lista}">
+                            <tr>
+
+
+                                <td>${u.getid}</td>  
+                                <td>${u.getNombre()}</td>  
+                                <td>${u.getapellido()}</td>  
+                                <td>${u.getDni()}</td>  
+                                <td>${u.getTelefono()}</td>  
+                                <td>${u.getedad()}</td>  
+                                <td>${u.getUsuario()}</td>  
+                                <td>${u.getContraseña()}</td>  
+                                <td>${u.getSexo()}</td>  
+                                <td>${u.getmail()}</td>
+                                <td> no disponible</td>  
+
+                                <td>
+                                    <a>Editar</a>   
+                                    <a>Eliminar</a> 
+
+                                </td>
+
+
+
+
+                            </tr> 
+
+                        </c:forEach>
+
+
+
+
+                    </tbody>
+
+
+                </table>  
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
 
     </body>
 </html>

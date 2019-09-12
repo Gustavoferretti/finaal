@@ -27,65 +27,76 @@ public class Controlador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String menu = request.getParameter("menu");
 
-       
         String accion = request.getParameter("accion");
-         UsuarioDAO u =new UsuarioDAO();
-         Usuario usuario;
-       
-        
-        switch (accion) {
+        UsuarioDAO u = new UsuarioDAO();
+        Usuario usuario;
+        if (accion.equals("Principal")) {
             
-            case "Principal":
-                request.getRequestDispatcher("Menu.jsp").forward(request, response);
-                break;
-            case "agregar":
-              
-                 String nombreusuario = request.getParameter("txtnom");
-                String apellido = request.getParameter("txtape");
-               int dni = Integer.parseInt(request.getParameter("txtdni"));
-
-                int edad = Integer.parseInt(request.getParameter("txtedad"));
-               int telefono = Integer.parseInt(request.getParameter("txttell"));
-               String usere = request.getParameter("txtuser");
-          /*String pass = request.getParameter("txtpass");*/
-                //String cargouser = request.getParameter("selecpro");
-                String sexouser = request.getParameter("selecsex");
-                // String mail = request.getParameter("txtmail");
-                
-
-                Usuario c = new Usuario();
-                c.setNombre(nombreusuario);
-                c.setapellido(apellido);
-                c.setDni(dni);
-                c.setEdad(edad);
-                c.setTelefono(telefono);
-                c.setUsuario(usere);
-              c.setSexo(sexouser);
-                  /*c.setContraseña(pass);*/
-               //c.setProfAlum(cargouser);
-         //   c.setMail(mail);
-                
-                UsuarioDAO conDAO = new UsuarioDAO();
-                conDAO.agregar(c);
-                request.setAttribute("mensaje", nombreusuario);
-                request.getRequestDispatcher("loguin.jsp").forward(request, response);
-                break;
-            case  "vernotas":
-                request.getRequestDispatcher("VerNotas.jsp").forward(request, response);
-
-                case  "Principal ":
-                request.getRequestDispatcher("principal.jsp").forward(request, response);
+            
+            request.getRequestDispatcher("menu.jsp").forward(request, response);
+        }
+        if (menu.equals("alumnos")) {
+            switch (accion) {
+                case "listar":
+                    UsuarioDAO contDAO = new UsuarioDAO();
+                    List<Usuario> aux = contDAO.listar();
+                    request.setAttribute("lista", aux);
+                   
                     break;
-                case  "loguin":
-                request.getRequestDispatcher("loguin.jsp").forward(request, response);
 
-            case "listar":
-                UsuarioDAO contDAO = new UsuarioDAO();
-                List<Usuario> aux = contDAO.listar();
-                request.setAttribute("lista", aux);
-                request.getRequestDispatcher("ListarAlumno.jsp").forward(request, response);
-                break;
+                case "actualizar":
+                    break;
+
+                case "delet":
+                    break;
+                case "agregar":
+
+                    String nombreusuario = request.getParameter("txtnom");
+                    String apellido = request.getParameter("txtape");
+                    int dni = Integer.parseInt(request.getParameter("txtdni"));
+
+                    int edad = Integer.parseInt(request.getParameter("txtedad"));
+                    int telefono = Integer.parseInt(request.getParameter("txttell"));
+                    String usere = request.getParameter("txtuser");
+                    String pass = request.getParameter("txtpass");
+                    // String cargouser = request.getParameter("cargo");
+                    String sexouser = request.getParameter("selecsex");
+                    String mail = request.getParameter("txtmail");
+
+                    Usuario c = new Usuario();
+                    c.setNombre(nombreusuario);
+                    c.setapellido(apellido);
+                    c.setDni(dni);
+                    c.setEdad(edad);
+                    c.setTelefono(telefono);
+                    c.setUsuario(usere);
+                    c.setSexo(sexouser);
+                    c.setContraseña(pass);
+                    //c.setProfAlum(cargouser);
+                    c.setMail(mail);
+
+                    UsuarioDAO conDAO = new UsuarioDAO();
+                    conDAO.agregar(c);
+                    request.setAttribute("mensaje", nombreusuario);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    break;
+                default:
+                    throw new AssertionError();
+
+            }
+
+            request.getRequestDispatcher("VerNotas.jsp").forward(request, response);
+        }
+        if (menu.equals("home")) {
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        }
+        if (menu.equals("Materias")) {
+            request.getRequestDispatcher("Notas.jsp").forward(request, response);
+        }
+        if (menu.equals("loguin")) {
+            request.getRequestDispatcher("loguin.jsp").forward(request, response);
         }
 
     }

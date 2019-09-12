@@ -1,5 +1,16 @@
 body{
-    background: url(../fondos/748189.jpg) no-repeat center center fixed;
+    background: url(../fondos/workshop-2209239_1920.jpg) no-repeat center center fixed;
     background-size: cover;
+    color:#FFFFFF;
+  
     
+}
+label{
+    
+    color: white;
+    
+}
+table{
+    
+     color: white;
 }

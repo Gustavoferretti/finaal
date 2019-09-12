@@ -25,14 +25,14 @@
                     <a class="navbar-brand" href="#">Escuela Desarroladores </a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="Controlador?accion=Principal">inicio</a></li>
+                    <li class="active"><a href="Controlador?menu=home" target="myframe">inicio</a></li>
                     <li class="dropdown">
                        
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">prioridad
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="Controlador?accion=loguin" target="myframe">Alumnos</a></li>
-                            <li><a href="Controlador?accion=vernotas">Materias</a></li>
+                            <li><a href="Controlador?menu=alumnos&accion=listar" target="myframe">Alumnos</a></li>
+                            <li><a href="Controlador?menu=verNotas" target="myframe">Materias</a></li>
                             <li><a href="#"></a></li>
                         </ul>
                     </li>
@@ -46,7 +46,7 @@
         </nav> 
         <div class="m-4" style="height:650px " >
             
-            <iframe name="myframe" style="height: 100%;  width:100%">
+            <iframe name="myframe" style="height: 100%;  width:100%; border: none; padding: 0px;">
                 
                 
                 

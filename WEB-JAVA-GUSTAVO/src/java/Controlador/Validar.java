@@ -34,8 +34,8 @@ public class Validar extends HttpServlet {
             String pass = request.getParameter("txtpass");
             us =uD.validar(user, pass);
 
-            if (us!= null) {
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+            if (us.getUsuario()!=null) {
+                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
 
             } else {
 
@@ -44,7 +44,7 @@ public class Validar extends HttpServlet {
 
         } else {
 
-            request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } 
         }
     

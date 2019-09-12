@@ -29,7 +29,7 @@ public class UsuarioDAO {
 
     public void agregar(Usuario c) {
 
-        String sql = "insert into usuarios(nombre, apellido,Dni,edad,telefono,usuario,sexo)values(?,?,?,?,?,?,?)";
+        String sql = "insert into usuarios(nombre, apellido,Dni,edad,telefono,usuario,sexo,contraseña,mail)values(?,?,?,?,?,?,?,?,?)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -40,7 +40,10 @@ public class UsuarioDAO {
               ps.setInt(5, c.getTelefono());
               ps.setString(6,c.getUsuario());
                 ps.setString(7,c.getSexo());
-               //  ps.setString(8,c.getMail());
+                ps.setString(8,c.getContraseña());
+               
+                    ps.setString(9,c.getMail());
+                   //  ps.setString(10,c.getProfAlum());
      
         
 
@@ -63,11 +66,11 @@ public class UsuarioDAO {
 
             while (rs.next()) {
                 Usuario u = new Usuario();
-                u.setId(rs.getInt(1));
+                u.setid(rs.getInt(1));
                 u.setNombre(rs.getString(2));
                 u.setapellido(rs.getString(3));
                 u.setDni(rs.getInt(4));
-                u.setProfAlum(rs.getString(5));
+              //  u.setProfAlum(rs.getString(5));
                 u.setSexo(rs.getString(6));
                 u.setTelefono(rs.getInt(7));
                 u.setMail(rs.getString(8));
@@ -83,17 +86,17 @@ public class UsuarioDAO {
 
     public Usuario listarId(int id) {
         Usuario emp = new Usuario();
-        String sql = "select * from empleado where IdEmpleado =" + id;
+        String sql = "select * from usuarios where id =" + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                emp.setId(rs.getInt(1));
+                emp.setid(rs.getInt(1));
                 emp.setNombre(rs.getString(2));
                 emp.setapellido(rs.getString(3));
                 emp.setDni(rs.getInt(4));
-                emp.setProfAlum(rs.getString(5));
+                //emp.setProfAlum(rs.getString(5));
                 emp.setSexo(rs.getString(6));
                 emp.setTelefono(rs.getInt(7));
                 emp.setMail(rs.getString(8));
@@ -106,31 +109,37 @@ public class UsuarioDAO {
         return emp;
     }
 
-    public int actualizar(Usuario em) {
-        String sql = "update usuarios(nombre,apellido,dni,Profesor/Alumnos,sexo,telefono,mail,edad,contraseña)values(?,?,?,?,?,?,?,?,?)";
-
+    public int actualizar(Usuario c) {
+       
+        String sql = "update  usuarios set nombre=? apellido=?,Dni=?,edad=?,telefono=?,usuario=?,sexo=?,contraseña=?,mail=? where id=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            em.setId(rs.getInt(1));
-            em.setNombre(rs.getString(2));
-            em.setapellido(rs.getString(3));
-            em.setDni(rs.getInt(4));
-            em.setProfAlum(rs.getString(5));
-            em.setSexo(rs.getString(6));
-            em.setTelefono(rs.getInt(7));
-            em.setMail(rs.getString(8));
-            em.setEdad(rs.getInt(10));
+            ps.setString(1, c.getNombre());
+            ps.setString(2, c.getApellido());
+            ps.setInt(3, c.getDni());
+             ps.setInt(4, c.getEdad());
+              ps.setInt(5, c.getTelefono());
+              ps.setString(6,c.getUsuario());
+                ps.setString(7,c.getSexo());
+                ps.setString(8,c.getContraseña());
+               
+                    ps.setString(9,c.getMail());
+                    ps.setInt(10,c.getId());
+                   //  ps.setString(10,c.getProfAlum());
+     
+        
 
             ps.executeUpdate();
         } catch (Exception e) {
         }
-        return r;
+      return r;
+    
     }
 
     public void delete(int id) {
         String sql
-                = "delete from Usuarios where IdEmpleado =" + id;
+                = "delete from Usuarios where Id =" + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -141,39 +150,34 @@ public class UsuarioDAO {
     }
     
    public Usuario validar(String nombreUsuario, String PassUsuario) {
-        String sql = "select * from usuarios where usuario='" + nombreUsuario + "' and contraseña='" + PassUsuario + "'";
-        Usuario usuario;
+        String sql = "select * from usuarios where usuario=? and contraseña=?" ;
+        Usuario  usuario =new Usuario();
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-           
+            ps.setString(1,nombreUsuario);
+            ps.setString(2,PassUsuario);
+           rs = ps.executeQuery();
             while (rs.next()) {
-                usuario =new Usuario();
-                usuario.setId(rs.getInt("id"));
-                usuario.setNombre(rs.getString("nombre"));
-                usuario.setapellido(rs.getString("apellido"));
-                usuario.setDni(rs.getInt("Dni"));
-                usuario.setProfAlum(rs.getString("Profesor/Alumno"));
-                usuario.setSexo(rs.getString("sexo"));
-                usuario.setTelefono(rs.getInt("telefono"));
-                usuario.setMail(rs.getString("edad"));
-                usuario.setEdad(rs.getInt("mail"));
+               
                 usuario.setContraseña(rs.getString("contraseña"));
                usuario.setUsuario(rs.getString("usuario"));
-                rs = ps.executeQuery();
-            return usuario;
+           
             }
 
         } catch (SQLException ex) {
 
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+             
+            return usuario;
 
-        return null;
+      
     }
+}
  
     
     
     
     
-}
+
